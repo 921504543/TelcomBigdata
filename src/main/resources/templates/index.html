@@ -1,0 +1,140 @@
+﻿<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/comon0.css">
+</head>
+	<script>
+	$(window).load(function(){  
+             $(".loading").fadeOut()
+            })  
+			
+/****/
+$(document).ready(function(){
+	var whei=$(window).width()
+	$("html").css({fontSize:whei/20})
+	$(window).resize(function(){
+		var whei=$(window).width()
+	 $("html").css({fontSize:whei/20})
+});
+	});
+	</script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script language="JavaScript" src="js/js.js" th:inline="javascript"></script>
+<body>
+<div class="canvas" style="opacity: .2">
+	<iframe frameborder="0" src="js/index.html" style="width: 100%; height: 100%"></iframe>
+	</div>
+<div class="loading">
+  <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+</div>
+<div class="head">
+  <h1>电信大数据可视化</h1>
+  <div class="weather"><!--<img src="picture/weather.png"><span>多云转小雨</span>--><span id="showTime"></span></div>
+	
+	<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"日"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+
+</script>
+	
+	
+</div>
+<div class="mainbox">
+  <ul class="clearfix">
+    <li>
+      <div class="boxall" style="height: 3.2rem">
+        <div class="alltitle">套餐订购情况</div>
+        <div class="allnav" id="echart1"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3.2rem">
+        <div class="alltitle">月通话行为分析(分钟)</div>
+        <div class="allnav" id="echart2"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3.2rem">
+        <div style="height:100%; width: 100%;">
+		  	<div class="sy" id="fb1"></div>
+				<div class="sy" id="fb2"></div>
+				<div class="sy" id="fb3"></div>
+		  </div>
+        <div class="boxfoot">
+			
+		  </div>
+      </div>
+    </li>
+    <li>
+      <div class="bar">
+        <div class="barbox">
+          <ul class="clearfix">
+            <li class="pulll_left counter">12581189</li>
+            <li class="pulll_left counter">3912410</li>
+          </ul>
+        </div>
+        <div class="barbox2">
+          <ul class="clearfix">
+            <li class="pulll_left">2019年总收入情况 </li>
+            <li class="pulll_left">2019年总支出情况</li>
+          </ul>
+        </div>
+      </div>
+      <div class="map">
+        <div class="boxall" style="margin-top: 0.15rem;padding-bottom: 0.51rem;padding-top: 0.02rem;">
+          <div class="alltitle" style="font-size: 0.3rem">各地区电信用户数目</div>
+          <div class="map4" id="map_1"></div>
+<!--          <div class="allnav" id="echart4" _echarts_instance_="ec_1578305104937" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative;"><div style="position: relative; overflow: hidden; width: 270px; height: 119px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="337" height="148" style="position: absolute; left: 0px; top: 0px; width: 270px; height: 119px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 91px; top: -70px; pointer-events: none;">17<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#0184d5;"></span>安卓: 4<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#00d887;"></span>IOS: 6</div></div>-->
+          <div class="boxfoot"></div>
+        </div>
+
+        <div class="map1"><img src="picture/lbx.png"></div>
+        <div class="map2"><img src="picture/jt.png"></div>
+        <div class="map3"><img src="picture/map.png"></div>
+
+      </div>
+    </li>
+    <li>
+          <div class="boxall" style="height:3.4rem">
+        <div class="alltitle">电信用户系统</div>
+        <div class="allnav" id="echart4"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3.2rem">
+        <div class="alltitle">上网行为分析(日均时)</div>
+        <div class="allnav" id="echart5"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3rem">
+        <div class="alltitle">电信地区占比情况</div>
+        <div class="allnav" id="echart6"></div>
+        <div class="boxfoot"></div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="back"></div>
+
+
+<script type="text/javascript" src="js/china.js"></script>
+<script type="text/javascript" src="js/area_echarts.js"></script>
+<!--此处thymleaf读取后台数据放到js里只能这么用-->
+<script th:inline="javascript">
+  var mapResult = [[${mapResult}]];
+</script>
+</body>
+</html>
